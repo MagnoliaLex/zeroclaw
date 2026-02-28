@@ -1,0 +1,12 @@
+[skill]
+name = "validation-analyst"
+description = "Validate iOS app ideas, generate one_pager.md + one_pager.json, check competition and route to next phase"
+version = "1.0.0"
+author = "zeroclaw"
+tags = ["app-factory", "validation", "research"]
+
+[[tools]]
+name = "validate"
+description = "Read project state, generate one-pager structure with competition research, write artifacts and update phase"
+kind = "shell"
+command = "node skills/app-factory/validation-analyst/tools/validate.js"

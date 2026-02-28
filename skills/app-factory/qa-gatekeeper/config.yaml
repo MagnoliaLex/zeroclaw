@@ -1,0 +1,34 @@
+skill:
+  name: qa-gatekeeper
+  description: Quality gate — runs 6 automated checks and routes based on score
+  version: "1.0.0"
+  tags:
+    - app-factory
+    - quality
+    - testing
+
+model: claude-sonnet-4-6
+timeout_seconds: 240
+max_tokens: 12000
+
+tools:
+  - read_file
+  - write_file
+  - list_directory
+  - shell
+
+permissions:
+  filesystem:
+    read:
+      - app-factory/state/
+      - app-factory/projects/
+      - templates/
+    write:
+      - app-factory/projects/*/quality_report.json
+      - app-factory/state/
+      - app-factory/logs/
+  network: false
+  shell:
+    allowed:
+      - xcodebuild
+      - xcrun

@@ -1,0 +1,12 @@
+[skill]
+name = "icon-designer"
+description = "Generate app icon via Nano Banana Pro API with template-based fallback; produce complete icon set at all required App Store sizes"
+version = "1.0.0"
+author = "zeroclaw"
+tags = ["app-factory", "icon", "design", "submission"]
+
+[[tools]]
+name = "icon"
+description = "Call Nano Banana Pro API (or use template fallback) to generate a 1024x1024 master icon, resize to all required sizes, write icon set to submission_ready/icons/, update state to video_production"
+kind = "shell"
+command = "node skills/app-factory/icon-designer/tools/icon.js"

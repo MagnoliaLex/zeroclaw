@@ -1,0 +1,12 @@
+[skill]
+name = "research-scout"
+description = "Discover trending iOS app ideas from X, Reddit, App Store trends, and RSS feeds. Maintains a validated-idea queue of at least 10 pending ideas."
+version = "1.0.0"
+author = "zeroclaw"
+tags = ["app-factory", "research", "ideation"]
+
+[[tools]]
+name = "scout"
+description = "Check current idea queue depth and generate new idea state files if below target (10). Uses pluggable providers: X API, Reddit API, RSS fallback."
+kind = "shell"
+command = "node skills/app-factory/research-scout/tools/scout.js"

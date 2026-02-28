@@ -1,0 +1,41 @@
+skill:
+  name: screenshot-agent
+  description: Automated iOS simulator screenshots for required App Store device sizes
+  version: "1.0.0"
+  tags:
+    - app-factory
+    - screenshots
+    - simulator
+    - submission
+
+model: claude-sonnet-4-6
+timeout_seconds: 300
+max_tokens: 8000
+
+tools:
+  - read_file
+  - write_file
+  - list_directory
+  - shell
+
+permissions:
+  filesystem:
+    read:
+      - app-factory/state/
+      - app-factory/projects/
+      - app-factory/logs/
+    write:
+      - app-factory/state/
+      - app-factory/projects/
+      - app-factory/logs/live-feed.log
+  network: false
+  shell: true
+  shell_allowlist:
+    - xcrun
+    - xcodebuild
+    - node
+
+environment:
+  optional:
+    - SIMULATOR_TIMEOUT
+    - XCODE_PROJECT_PATH

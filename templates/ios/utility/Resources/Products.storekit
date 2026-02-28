@@ -1,0 +1,75 @@
+{
+  "identifier" : "{{BUNDLE_ID}}.storekit",
+  "nonConsumableProducts" : [
+    {
+      "displayPrice" : "9.99",
+      "familySharable" : true,
+      "internalID" : "lifetime_premium_stub",
+      "localizations" : [
+        {
+          "description" : "Unlock all premium features forever with a one-time purchase.",
+          "displayName" : "Lifetime Premium",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "{{BUNDLE_ID}}.premium.lifetime",
+      "referenceName" : "Lifetime Premium",
+      "type" : "NonConsumable"
+    }
+  ],
+  "subscriptionGroups" : [
+    {
+      "id" : "premium_group_stub",
+      "localizations" : [],
+      "name" : "{{APP_NAME}} Premium",
+      "subscriptions" : [
+        {
+          "adHocOfferCodes" : [],
+          "displayPrice" : "2.99",
+          "familySharable" : true,
+          "groupNumber" : 1,
+          "internalID" : "premium_monthly_stub",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Access all premium features with a monthly subscription.",
+              "displayName" : "Monthly Premium",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "{{BUNDLE_ID}}.premium.monthly",
+          "referenceName" : "Monthly Premium",
+          "subscriptionPeriod" : "P1M",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOfferCodes" : [],
+          "displayPrice" : "19.99",
+          "familySharable" : true,
+          "groupNumber" : 2,
+          "internalID" : "premium_annual_stub",
+          "introductoryOffer" : {
+            "duration" : "P1W",
+            "offerMode" : "freeTrial",
+            "offerID" : null
+          },
+          "localizations" : [
+            {
+              "description" : "Access all premium features with an annual subscription. Includes a free 7-day trial.",
+              "displayName" : "Annual Premium",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "{{BUNDLE_ID}}.premium.annual",
+          "referenceName" : "Annual Premium",
+          "subscriptionPeriod" : "P1Y",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}

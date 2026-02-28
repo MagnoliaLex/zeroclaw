@@ -1,0 +1,28 @@
+skill:
+  name: code-reviewer
+  description: Independent code review via Codex CLI — read-only analysis
+  version: "1.0.0"
+  tags:
+    - app-factory
+    - review
+    - quality
+
+model: codex-5.3
+timeout_seconds: 180
+max_tokens: 16000
+
+tools:
+  - read_file
+  - write_file
+  - list_directory
+
+permissions:
+  filesystem:
+    read:
+      - app-factory/state/
+      - app-factory/projects/
+    write:
+      - app-factory/projects/*/review_report.json
+      - app-factory/state/
+  network: false
+  shell: false

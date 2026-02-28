@@ -1,0 +1,12 @@
+[skill]
+name = "code-reviewer"
+description = "Independent code review via Codex CLI — produces structured review report"
+version = "1.0.0"
+author = "zeroclaw"
+tags = ["app-factory", "review", "quality"]
+
+[[tools]]
+name = "review"
+description = "Run code review on project source and produce review_report.json"
+kind = "shell"
+command = "node skills/app-factory/code-reviewer/tools/review.js"

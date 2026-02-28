@@ -1,0 +1,12 @@
+[skill]
+name = "monetization-agent"
+description = "StoreKit 2 integration and pricing configuration for iOS apps"
+version = "1.0.0"
+author = "zeroclaw"
+tags = ["app-factory", "monetization", "storekit"]
+
+[[tools]]
+name = "monetize"
+description = "Configure StoreKit 2 monetization for project"
+kind = "shell"
+command = "node skills/app-factory/monetization-agent/tools/monetize.js"

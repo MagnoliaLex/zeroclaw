@@ -28,3 +28,13 @@ venv/
 *.pem
 credentials.json
 .worktrees/
+
+# App Factory runtime data (state files, project workspaces, logs)
+app-factory/state/*.json
+app-factory/projects/
+app-factory/logs/
+
+# Dashboard dependencies
+dashboard/node_modules/
+dashboard/.next/
+dashboard-api/node_modules/

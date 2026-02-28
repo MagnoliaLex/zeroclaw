@@ -1,0 +1,29 @@
+skill:
+  name: shelly-router
+  description: App Factory pipeline router — reads state, picks next action
+  version: "1.0.0"
+  tags:
+    - app-factory
+    - router
+    - orchestration
+
+model: claude-sonnet-4-6
+timeout_seconds: 60
+max_tokens: 4000
+
+tools:
+  - read_file
+  - write_file
+  - list_directory
+
+permissions:
+  filesystem:
+    read:
+      - app-factory/state/
+      - app-factory/logs/
+    write:
+      - app-factory/state/routing_decision.json
+      - app-factory/logs/routing.log
+      - app-factory/logs/live-feed.log
+  network: false
+  shell: false

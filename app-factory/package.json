@@ -1,0 +1,12 @@
+{
+  "name": "zeroclaw-app-factory",
+  "version": "1.0.0",
+  "description": "Autonomous iOS app generation pipeline for ZeroClaw",
+  "private": true,
+  "scripts": {
+    "test": "node tests/run.js",
+    "route": "node ../skills/app-factory/shelly-router/tools/route.js",
+    "summary": "node -e \"require('./lib/summary').writeSummary(); console.log('Summary written')\"",
+    "start": "echo 'Add heartbeat task to ZeroClaw: - Run App Factory router: node skills/app-factory/shelly-router/tools/route.js'"
+  }
+}

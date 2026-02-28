@@ -264,11 +264,10 @@ impl GeminiProvider {
                 let model_name = Self::format_model_name(model);
                 let base_url = format!("{PUBLIC_API_ENDPOINT}/{model_name}:generateContent");
 
-                if auth.is_api_key() {
-                    format!("{base_url}?key={}", auth.credential())
-                } else {
-                    base_url
-                }
+                // API key is passed via x-goog-api-key header in
+                // build_generate_content_request, not as query parameter,
+                // to avoid leaking it in server/proxy access logs.
+                base_url
             }
         }
     }
@@ -321,7 +320,9 @@ impl GeminiProvider {
                     .json(&internal_request)
                     .bearer_auth(token)
             }
-            _ => req,
+            GeminiAuth::ExplicitKey(key)
+            | GeminiAuth::EnvGeminiKey(key)
+            | GeminiAuth::EnvGoogleKey(key) => req.header("x-goog-api-key", key),
         }
     }
 }
@@ -500,10 +501,12 @@ mod tests {
     }
 
     #[test]
-    fn api_key_url_includes_key_query_param() {
+    fn api_key_url_does_not_include_key_in_query() {
         let auth = GeminiAuth::ExplicitKey("api-key-123".into());
         let url = GeminiProvider::build_generate_content_url("gemini-2.0-flash", &auth);
-        assert!(url.contains(":generateContent?key=api-key-123"));
+        // Key is now sent via x-goog-api-key header, not in query string
+        assert!(!url.contains("?key="), "API key must not appear in URL");
+        assert!(url.contains(":generateContent"));
     }
 
     #[test]

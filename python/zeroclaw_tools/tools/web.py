@@ -31,7 +31,10 @@ def http_request(url: str, method: str = "GET", headers: str = "", body: str = "
             for h in headers.split(","):
                 if ":" in h:
                     k, v = h.split(":", 1)
-                    req_headers[k.strip()] = v.strip()
+                    k, v = k.strip(), v.strip()
+                    if "\r" in k or "\n" in k or "\r" in v or "\n" in v:
+                        return "Error: header contains illegal newline characters"
+                    req_headers[k] = v
 
         data = body.encode() if body else None
         req = urllib.request.Request(url, data=data, headers=req_headers, method=method.upper())

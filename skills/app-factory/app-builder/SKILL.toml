@@ -1,0 +1,12 @@
+[skill]
+name = "app-builder"
+description = "Generate Xcode project from iOS templates, scaffold SwiftUI views, add onboarding/settings/Gemini wrapper, run xcodebuild fast check"
+version = "1.0.0"
+author = "zeroclaw"
+tags = ["app-factory", "codegen", "ios", "xcode"]
+
+[[tools]]
+name = "build"
+description = "Orchestrate template selection, scaffold Xcode project, generate Swift source files, and run compilation verification"
+kind = "shell"
+command = "node skills/app-factory/app-builder/tools/build.js"

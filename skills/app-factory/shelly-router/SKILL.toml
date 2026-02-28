@@ -1,0 +1,12 @@
+[skill]
+name = "shelly-router"
+description = "App Factory pipeline router — reads project state, picks next action, delegates to skill agents"
+version = "1.0.0"
+author = "zeroclaw"
+tags = ["app-factory", "router", "orchestration"]
+
+[[tools]]
+name = "route"
+description = "Run routing logic to determine next pipeline action"
+kind = "shell"
+command = "node skills/app-factory/shelly-router/tools/route.js"

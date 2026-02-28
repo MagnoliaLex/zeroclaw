@@ -1,0 +1,34 @@
+skill:
+  name: larry-marketing
+  description: Social media marketing — posting, engagement tracking, strategy optimization
+  version: "1.0.0"
+  tags:
+    - app-factory
+    - marketing
+    - social-media
+
+model: claude-opus-4-6
+timeout_seconds: 180
+max_tokens: 16000
+
+tools:
+  - read_file
+  - write_file
+  - list_directory
+  - shell
+
+permissions:
+  filesystem:
+    read:
+      - app-factory/state/
+      - app-factory/projects/
+    write:
+      - app-factory/projects/
+      - app-factory/state/
+      - app-factory/logs/
+  network: true
+  shell:
+    allowed:
+      - node
+      - curl
+  env_namespace: LARRY_

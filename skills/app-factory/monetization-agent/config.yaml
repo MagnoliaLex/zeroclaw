@@ -1,0 +1,30 @@
+skill:
+  name: monetization-agent
+  description: StoreKit 2 integration and pricing configuration
+  version: "1.0.0"
+  tags:
+    - app-factory
+    - monetization
+    - storekit
+
+model: claude-sonnet-4-6
+timeout_seconds: 120
+max_tokens: 8000
+
+tools:
+  - read_file
+  - write_file
+  - list_directory
+
+permissions:
+  filesystem:
+    read:
+      - app-factory/state/
+      - app-factory/projects/
+      - templates/
+    write:
+      - app-factory/projects/
+      - app-factory/state/
+      - app-factory/logs/
+  network: false
+  shell: false

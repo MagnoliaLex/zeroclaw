@@ -1,0 +1,12 @@
+[skill]
+name = "larry-marketing"
+description = "Social media marketing agent — posting, engagement tracking, strategy optimization"
+version = "1.0.0"
+author = "zeroclaw"
+tags = ["app-factory", "marketing", "social-media"]
+
+[[tools]]
+name = "market"
+description = "Generate and schedule marketing content, track engagement"
+kind = "shell"
+command = "node skills/app-factory/larry-marketing/tools/market.js"

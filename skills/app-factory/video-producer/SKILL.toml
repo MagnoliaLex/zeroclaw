@@ -1,0 +1,12 @@
+[skill]
+name = "video-producer"
+description = "Promotional video creation via Votion API with slideshow fallback"
+version = "1.0.0"
+author = "zeroclaw"
+tags = ["app-factory", "video", "assets"]
+
+[[tools]]
+name = "video"
+description = "Generate promotional video for App Store listing"
+kind = "shell"
+command = "node skills/app-factory/video-producer/tools/video.js"

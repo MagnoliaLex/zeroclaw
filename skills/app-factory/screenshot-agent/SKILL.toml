@@ -1,0 +1,12 @@
+[skill]
+name = "screenshot-agent"
+description = "Automated iOS simulator screenshots for required App Store sizes: iPhone 6.7\", iPhone 6.1\", iPad 12.9\""
+version = "1.0.0"
+author = "zeroclaw"
+tags = ["app-factory", "screenshots", "simulator", "submission"]
+
+[[tools]]
+name = "screenshot"
+description = "Boot simulators, build and install the app, navigate onboarding and core flows, capture screenshots for all required device sizes, write to submission_ready/screenshots/, update state to icon_generation"
+kind = "shell"
+command = "node skills/app-factory/screenshot-agent/tools/screenshot.js"

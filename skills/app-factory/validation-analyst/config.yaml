@@ -1,0 +1,41 @@
+skill:
+  name: validation-analyst
+  description: Validate iOS app ideas, generate one_pager.md + one_pager.json, check competition and routing
+  version: "1.0.0"
+  tags:
+    - app-factory
+    - validation
+    - research
+
+model: claude-sonnet-4-6
+timeout_seconds: 180
+max_tokens: 12000
+
+tools:
+  - web_search
+  - read_file
+  - write_file
+
+permissions:
+  filesystem:
+    read:
+      - app-factory/state/
+    write:
+      - app-factory/state/
+      - app-factory/projects/
+      - app-factory/logs/live-feed.log
+  network:
+    allowed_domains:
+      - apps.apple.com
+      - www.google.com
+      - www.bing.com
+      - sensortower.com
+      - appfollow.io
+  shell: false
+
+environment:
+  optional:
+    - DASHBOARD_APPROVAL_REQUIRED
+    - APP_FACTORY_STATE_DIR
+    - APP_FACTORY_PROJECTS_DIR
+    - APP_FACTORY_LOGS_DIR

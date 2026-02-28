@@ -1,0 +1,30 @@
+# App Factory Workflow Manifest
+# Register this workflow with ZeroClaw's skill and heartbeat systems.
+
+[workflow]
+name = "app-factory"
+description = "Autonomous iOS app generation pipeline"
+version = "1.0.0"
+enabled = true
+
+[heartbeat]
+# Shelly router runs every 5 minutes via heartbeat
+task = "Run App Factory router: node skills/app-factory/shelly-router/tools/route.js"
+interval_minutes = 5
+
+[skills]
+# All skills registered under app-factory namespace
+directory = "skills/app-factory"
+
+[state]
+directory = "app-factory/state"
+projects_directory = "app-factory/projects"
+logs_directory = "app-factory/logs"
+
+[concurrency]
+max_active_projects = 5
+lease_duration_seconds = 120
+
+[quality_gate]
+pass_threshold = 8.0
+max_qa_attempts = 3

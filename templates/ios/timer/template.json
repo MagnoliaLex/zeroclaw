@@ -1,0 +1,31 @@
+{
+  "name": "timer",
+  "version": "1.0.0",
+  "description": "Timer/stopwatch/countdown app",
+  "navigation": "TabView",
+  "tabs": ["Timer", "Stopwatch", "Presets", "Settings"],
+  "variables": ["APP_NAME", "BUNDLE_ID", "PRIMARY_COLOR"],
+  "features": {
+    "onboarding": true,
+    "settings": true,
+    "gemini_api": true,
+    "storekit": true,
+    "analytics": true,
+    "permissions": true,
+    "background_timer": true,
+    "notifications": true
+  },
+  "files": [
+    "Sources/AppMain.swift",
+    "Sources/ContentView.swift",
+    "Sources/TimerView.swift",
+    "Sources/StopwatchView.swift",
+    "Sources/PresetsView.swift",
+    "Sources/OnboardingView.swift",
+    "Sources/SettingsView.swift",
+    "Sources/GeminiService.swift",
+    "Sources/PaywallView.swift",
+    "Sources/AnalyticsService.swift",
+    "Sources/PermissionHelper.swift"
+  ]
+}

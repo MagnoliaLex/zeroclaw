@@ -1,0 +1,12 @@
+[skill]
+name = "store-packager"
+description = "Produce App Store listing (name/subtitle/description/keywords/privacy policy/category) from project one-pager and source artifacts"
+version = "1.0.0"
+author = "zeroclaw"
+tags = ["app-factory", "store-listing", "submission"]
+
+[[tools]]
+name = "package"
+description = "Read project one-pager and source, generate store_listing.json, store_listing.md, and privacy_policy.html in submission_ready/, update state to screenshots"
+kind = "shell"
+command = "node skills/app-factory/store-packager/tools/package.js"

@@ -1,0 +1,31 @@
+skill:
+  name: store-packager
+  description: Generate App Store listing copy, formatted markdown, and privacy policy from project one-pager and source
+  version: "1.0.0"
+  tags:
+    - app-factory
+    - store-listing
+    - submission
+
+model: claude-opus-4-6
+timeout_seconds: 180
+max_tokens: 16000
+
+tools:
+  - read_file
+  - write_file
+  - list_directory
+  - shell
+
+permissions:
+  filesystem:
+    read:
+      - app-factory/state/
+      - app-factory/projects/
+      - app-factory/logs/
+    write:
+      - app-factory/state/
+      - app-factory/projects/
+      - app-factory/logs/live-feed.log
+  network: false
+  shell: false

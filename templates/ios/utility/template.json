@@ -1,0 +1,66 @@
+{
+  "archetype": "utility",
+  "description": "Calculator, converter, or formatter utility app with history tracking and AI suggestions.",
+  "ios_deployment_target": "17.0",
+  "swift_version": "5.9",
+  "variables": {
+    "APP_NAME": {
+      "description": "Human-readable application name shown on the home screen and in navigation bars.",
+      "example": "UnitConvert",
+      "required": true
+    },
+    "BUNDLE_ID": {
+      "description": "iOS bundle identifier in reverse-DNS format.",
+      "example": "com.example.unitconvert",
+      "required": true
+    },
+    "PRIMARY_COLOR": {
+      "description": "Hex color code for the brand accent used throughout the UI.",
+      "example": "#007AFF",
+      "required": true
+    },
+    "GEMINI_API_KEY": {
+      "description": "Google Gemini Flash API key for AI-powered suggestions.",
+      "example": "AIzaSy...",
+      "required": false
+    },
+    "TEAM_ID": {
+      "description": "Apple Developer Team ID for code signing.",
+      "example": "XXXXXXXXXX",
+      "required": true
+    },
+    "SUPPORT_URL": {
+      "description": "URL shown in the Settings support link.",
+      "example": "https://example.com/support",
+      "required": false
+    }
+  },
+  "features": [
+    "tab_navigation",
+    "history_persistence",
+    "ai_suggestions_via_gemini",
+    "storekit2_paywall",
+    "onboarding_flow",
+    "analytics_stubs"
+  ],
+  "files": {
+    "Sources": [
+      "AppEntry.swift",
+      "OnboardingView.swift",
+      "SettingsView.swift",
+      "GeminiService.swift",
+      "PaywallView.swift",
+      "AnalyticsService.swift",
+      "PermissionHelper.swift",
+      "ToolView.swift",
+      "HistoryView.swift",
+      "HistoryStore.swift",
+      "AISuggestionView.swift"
+    ],
+    "Resources": [
+      "Info.plist",
+      "Products.storekit",
+      "Assets.xcassets"
+    ]
+  }
+}

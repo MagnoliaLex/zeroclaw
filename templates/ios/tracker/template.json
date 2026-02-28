@@ -1,0 +1,31 @@
+{
+  "name": "tracker",
+  "version": "1.0.0",
+  "description": "Habit/health/activity tracker with charts",
+  "navigation": "TabView",
+  "tabs": ["Dashboard", "Add Entry", "History", "Settings"],
+  "variables": ["APP_NAME", "BUNDLE_ID", "PRIMARY_COLOR"],
+  "features": {
+    "onboarding": true,
+    "settings": true,
+    "gemini_api": true,
+    "storekit": true,
+    "analytics": true,
+    "permissions": false,
+    "data_persistence": true,
+    "charts": true
+  },
+  "files": [
+    "Sources/AppMain.swift",
+    "Sources/ContentView.swift",
+    "Sources/DashboardView.swift",
+    "Sources/EntryFormView.swift",
+    "Sources/ChartView.swift",
+    "Sources/OnboardingView.swift",
+    "Sources/SettingsView.swift",
+    "Sources/GeminiService.swift",
+    "Sources/PaywallView.swift",
+    "Sources/AnalyticsService.swift",
+    "Sources/PermissionHelper.swift"
+  ]
+}

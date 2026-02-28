@@ -1,0 +1,42 @@
+skill:
+  name: video-producer
+  description: Create promotional video via Votion API with ffmpeg slideshow fallback; outputs promo_video.mp4
+  version: "1.0.0"
+  tags:
+    - app-factory
+    - video
+    - promo
+    - submission
+
+model: claude-sonnet-4-6
+timeout_seconds: 300
+max_tokens: 8000
+
+tools:
+  - read_file
+  - write_file
+  - list_directory
+  - shell
+
+permissions:
+  filesystem:
+    read:
+      - app-factory/state/
+      - app-factory/projects/
+      - app-factory/logs/
+    write:
+      - app-factory/state/
+      - app-factory/projects/
+      - app-factory/logs/live-feed.log
+  network:
+    allowed_domains:
+      - api.votion.io
+  shell: true
+  shell_allowlist:
+    - ffmpeg
+    - node
+
+environment:
+  optional:
+    - VOTION_API_KEY
+    - VOTION_API_URL

@@ -1,0 +1,41 @@
+skill:
+  name: app-builder
+  description: Generate Xcode project from templates, add onboarding/settings/Gemini wrapper, run build verification
+  version: "1.0.0"
+  tags:
+    - app-factory
+    - codegen
+    - ios
+    - xcode
+
+model: claude-opus-4-6
+timeout_seconds: 300
+max_tokens: 32000
+
+tools:
+  - read_file
+  - write_file
+  - bash
+
+permissions:
+  filesystem:
+    read:
+      - app-factory/state/
+      - app-factory/projects/
+      - app-factory/templates/ios/
+    write:
+      - app-factory/projects/
+      - app-factory/state/
+      - app-factory/logs/live-feed.log
+  network:
+    allowed_domains: []
+  shell: true
+  shell_allowlist:
+    - xcodebuild
+
+environment:
+  optional:
+    - APP_FACTORY_STATE_DIR
+    - APP_FACTORY_PROJECTS_DIR
+    - APP_FACTORY_LOGS_DIR
+    - GEMINI_API_KEY

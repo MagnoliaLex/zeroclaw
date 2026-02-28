@@ -1,0 +1,12 @@
+[skill]
+name = "qa-gatekeeper"
+description = "Quality gate — runs 6 automated checks and routes based on weighted score"
+version = "1.0.0"
+author = "zeroclaw"
+tags = ["app-factory", "quality", "testing"]
+
+[[tools]]
+name = "qa_gate"
+description = "Run quality gate checks and produce quality_report.json"
+kind = "shell"
+command = "node skills/app-factory/qa-gatekeeper/tools/qa-gate.js"

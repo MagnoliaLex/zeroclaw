@@ -1,0 +1,15 @@
+This is a placeholder for the Assets.xcassets bundle.
+
+To set up your asset catalog:
+
+1. Delete this file and create an actual Assets.xcassets directory in Xcode.
+2. Add your app icon set named "AppIcon" with all required sizes.
+3. Add an "AccentColor" color set that matches {{PRIMARY_COLOR}}.
+4. Add any image assets your views reference by name.
+
+Required asset sets for this archetype:
+- AppIcon (all sizes for iOS)
+- AccentColor (color set, value: {{PRIMARY_COLOR}})
+
+Optional:
+- LaunchImage or use a LaunchScreen storyboard instead.

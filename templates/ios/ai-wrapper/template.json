@@ -1,0 +1,79 @@
+{
+  "archetype": "ai-wrapper",
+  "description": "AI-powered chat and generation interface using Gemini Flash with streaming support.",
+  "ios_deployment_target": "17.0",
+  "swift_version": "5.9",
+  "variables": {
+    "APP_NAME": {
+      "description": "Human-readable application name shown on the home screen and in navigation bars.",
+      "example": "AskAI",
+      "required": true
+    },
+    "BUNDLE_ID": {
+      "description": "iOS bundle identifier in reverse-DNS format.",
+      "example": "com.example.askai",
+      "required": true
+    },
+    "PRIMARY_COLOR": {
+      "description": "Hex color code for the brand accent used throughout the UI.",
+      "example": "#7C3AED",
+      "required": true
+    },
+    "GEMINI_API_KEY": {
+      "description": "Google Gemini Flash API key for AI-powered chat and generation.",
+      "example": "AIzaSy...",
+      "required": true
+    },
+    "TEAM_ID": {
+      "description": "Apple Developer Team ID for code signing.",
+      "example": "XXXXXXXXXX",
+      "required": true
+    },
+    "SUPPORT_URL": {
+      "description": "URL shown in the Settings support link.",
+      "example": "https://example.com/support",
+      "required": false
+    },
+    "APPLE_APP_ID": {
+      "description": "Apple App Store numeric app ID for the rate app link.",
+      "example": "1234567890",
+      "required": false
+    },
+    "PRIVACY_POLICY_URL": {
+      "description": "URL to the app's privacy policy.",
+      "example": "https://example.com/privacy",
+      "required": false
+    }
+  },
+  "features": [
+    "navigation_stack",
+    "streaming_chat",
+    "conversation_history",
+    "prompt_library",
+    "system_prompt_editor",
+    "gemini_flash_api",
+    "storekit2_paywall",
+    "onboarding_flow",
+    "analytics_stubs"
+  ],
+  "files": {
+    "Sources": [
+      "AppEntry.swift",
+      "OnboardingView.swift",
+      "SettingsView.swift",
+      "GeminiService.swift",
+      "PaywallView.swift",
+      "AnalyticsService.swift",
+      "PermissionHelper.swift",
+      "ChatStore.swift",
+      "ChatView.swift",
+      "ChatMessageView.swift",
+      "PromptLibraryView.swift"
+    ],
+    "Resources": [
+      "Info.plist",
+      "Products.storekit",
+      "Assets.xcassets"
+    ]
+  }
+}

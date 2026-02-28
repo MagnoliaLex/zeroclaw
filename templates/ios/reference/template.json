@@ -1,0 +1,31 @@
+{
+  "name": "reference",
+  "version": "1.0.0",
+  "description": "Reference guide / knowledge base app",
+  "navigation": "NavigationSplitView",
+  "variables": ["APP_NAME", "BUNDLE_ID", "PRIMARY_COLOR"],
+  "features": {
+    "onboarding": true,
+    "settings": true,
+    "gemini_api": true,
+    "storekit": true,
+    "analytics": true,
+    "permissions": false,
+    "search": true,
+    "bookmarks": true
+  },
+  "files": [
+    "Sources/AppMain.swift",
+    "Sources/ContentView.swift",
+    "Sources/CategoryListView.swift",
+    "Sources/ArticleView.swift",
+    "Sources/SearchView.swift",
+    "Sources/BookmarkView.swift",
+    "Sources/OnboardingView.swift",
+    "Sources/SettingsView.swift",
+    "Sources/GeminiService.swift",
+    "Sources/PaywallView.swift",
+    "Sources/AnalyticsService.swift",
+    "Sources/PermissionHelper.swift"
+  ]
+}

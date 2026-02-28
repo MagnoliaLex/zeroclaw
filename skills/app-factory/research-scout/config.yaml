@@ -1,0 +1,42 @@
+skill:
+  name: research-scout
+  description: Discover trending iOS app ideas from X, Reddit, App Store trends, and RSS feeds
+  version: "1.0.0"
+  tags:
+    - app-factory
+    - research
+    - ideation
+
+model: claude-sonnet-4-6
+timeout_seconds: 120
+max_tokens: 8000
+
+tools:
+  - web_search
+  - read_file
+  - write_file
+
+permissions:
+  filesystem:
+    read:
+      - app-factory/state/
+      - app-factory/logs/
+    write:
+      - app-factory/state/
+      - app-factory/logs/live-feed.log
+  network:
+    allowed_domains:
+      - api.twitter.com
+      - oauth2.googleapis.com
+      - www.reddit.com
+      - feeds.feedburner.com
+      - hnrss.org
+      - www.producthunt.com
+      - indiehackers.com
+  shell: false
+
+environment:
+  optional:
+    - X_BEARER_TOKEN
+    - REDDIT_CLIENT_ID
+    - REDDIT_CLIENT_SECRET

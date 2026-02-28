@@ -125,7 +125,7 @@ impl EmbeddingProvider for OpenAiEmbedding {
         if !resp.status().is_success() {
             let status = resp.status();
             let text = resp.text().await.unwrap_or_default();
-            anyhow::bail!("Embedding API error {status}: {text}");
+            anyhow::bail!("Embedding API error {status}: {}", crate::security::redact(&text));
         }
 
         let json: serde_json::Value = resp.json().await?;

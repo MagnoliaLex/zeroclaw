@@ -52,7 +52,7 @@ impl DiscordChannel {
     }
 }
 
-const BASE64_ALPHABET: &[u8] = b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+use base64::Engine as _;
 
 /// Discord's maximum message length for regular messages.
 ///
@@ -144,41 +144,12 @@ fn normalize_incoming_content(
     Some(normalized)
 }
 
-/// Minimal base64 decode (no extra dep) — only needs to decode the user ID portion
-#[allow(clippy::cast_possible_truncation)]
+/// Decode base64 — used to extract the bot user ID from the token.
 fn base64_decode(input: &str) -> Option<String> {
-    let padded = match input.len() % 4 {
-        2 => format!("{input}=="),
-        3 => format!("{input}="),
-        _ => input.to_string(),
-    };
-
-    let mut bytes = Vec::new();
-    let chars: Vec<u8> = padded.bytes().collect();
-
-    for chunk in chars.chunks(4) {
-        if chunk.len() < 4 {
-            break;
-        }
-
-        let mut v = [0usize; 4];
-        for (i, &b) in chunk.iter().enumerate() {
-            if b == b'=' {
-                v[i] = 0;
-            } else {
-                v[i] = BASE64_ALPHABET.iter().position(|&a| a == b)?;
-            }
-        }
-
-        bytes.push(((v[0] << 2) | (v[1] >> 4)) as u8);
-        if chunk[2] != b'=' {
-            bytes.push((((v[1] & 0xF) << 4) | (v[2] >> 2)) as u8);
-        }
-        if chunk[3] != b'=' {
-            bytes.push((((v[2] & 0x3) << 6) | v[3]) as u8);
-        }
-    }
-
+    let bytes = base64::engine::general_purpose::STANDARD_NO_PAD
+        .decode(input)
+        .or_else(|_| base64::engine::general_purpose::STANDARD.decode(input))
+        .ok()?;
     String::from_utf8(bytes).ok()
 }
 
